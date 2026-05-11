@@ -14,6 +14,8 @@ COPY ../Media/Musique /NOMORE_YOUTUBE/Media/Musique
 
 WORKDIR /NOMORE_YOUTUBE/Code
 
+RUN chmod +x init.sh
 EXPOSE 5000
 
-CMD ["flask", "run", "--host=0.0.0.0","--debug"]
+CMD ["./init.sh"]
+#CMD ["flask", "run", "--host=0.0.0.0","--debug"]

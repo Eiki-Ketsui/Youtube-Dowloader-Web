@@ -18,19 +18,29 @@
       </div>
 
     <h2> Télécharger</h2>
+    
+    {% with msg = get_flashed_messages() %}
+      {% if msg %}
+
+        <strong id=msg>{{ msg[0] }}</strong>
+
+      {% endif %}
+    {% endwith %}
+
     <form>
     <input type="text" id="url" name="url" placeholder="URL de la vidéo">
     <div id="container_button">
-      <button type="button" class ="button" id="Video">Vidéo</button>
-      <button type="button" class ="button"  id="Musique">Musique</button>
+      <button type="button"  class= "active button" id="Video">Vidéo</button>
+      <button type="button" class ="desactive button" id="Musique">Musique</button>
+      <input type="hidden" id ="result"name="type" value="Video">
    
     </div>
-    
+
     <button id="download-btn" type="submit">Télécharger</button>
-    <script src="{{ url_for('static', filename='/script/script-video.js') }}"></script>
     </form>
     </div>
 
 </body>
+<script src="{{ url_for('static', filename='/script/script-video.js') }}"></script>
 
 </html>
