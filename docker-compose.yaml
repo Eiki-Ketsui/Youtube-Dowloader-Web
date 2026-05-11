@@ -1,0 +1,15 @@
+services:
+
+  python-flask:
+    container_name: python-flask
+    build: .
+    stdin_open: true
+    tty: true
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./Media:/NOMORE_YOUTUBE/Media
+      - ./flask_app:/NOMORE_YOUTUBE/Code
+
+
+

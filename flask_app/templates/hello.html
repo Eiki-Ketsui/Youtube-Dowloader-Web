@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<title>Téléchargeur Youtube</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+
+<body>
+
+    <div id=main-container>
+      <div id ="titleandlogo">
+        <div id="logo-container">
+            <svg id ="youtube"  viewBox="0 0 87 74"  xmlns="http://www.w3.org/2000/svg">
+            <path d="M43.3333 0C29.38 0 11.2695 3.49609 11.2695 3.49609L11.224 3.54818C4.86888 4.56455 0 10.0254 0 16.6667V36.6667V36.6732V56.6667V56.6732C0.00620151 59.845 1.1429 62.9106 3.20599 65.3198C5.26909 67.7289 8.12343 69.3237 11.2565 69.8177L11.2695 69.8372C11.2695 69.8372 29.38 73.3398 43.3333 73.3398C57.2867 73.3398 75.3971 69.8372 75.3971 69.8372L75.4036 69.8307C78.5401 69.3377 81.3977 67.7417 83.4624 65.3297C85.5271 62.9177 86.6633 59.8482 86.6667 56.6732V56.6667V36.6732V36.6667V16.6667C86.662 13.4938 85.526 10.4265 83.4628 8.01603C81.3996 5.60554 78.5443 4.00984 75.4102 3.51562L75.3971 3.49609C75.3971 3.49609 57.2867 0 43.3333 0ZM33.3333 21.3281L60 36.6667L33.3333 52.0052V21.3281Z" fill="white"/>
+            </svg>
+        </div>
+        <h1>Youtube downloader</h1>
+      </div>
+
+    <h2> Télécharger</h2>
+    <form>
+    <input type="text" id="url" name="url" placeholder="URL de la vidéo">
+    <div id="container_button">
+      <button type="button" class ="button" id="Video">Vidéo</button>
+      <button type="button" class ="button"  id="Musique">Musique</button>
+   
+    </div>
+    
+    <button id="download-btn" type="submit">Télécharger</button>
+    <script src="{{ url_for('static', filename='/script/script-video.js') }}"></script>
+    </form>
+    </div>
+
+</body>
+
+</html>
