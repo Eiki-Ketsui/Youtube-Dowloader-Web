@@ -18,4 +18,3 @@ RUN chmod +x init.sh
 EXPOSE 5000
 
 CMD ["./init.sh"]
-#CMD ["flask", "run", "--host=0.0.0.0","--debug"]

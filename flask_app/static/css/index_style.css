@@ -54,8 +54,17 @@ button{
     height: 100px;
     color:#fff;
     font-size: 35px;
+
+}
+
+.mini{
+    display: block;
     
-    
+    padding: 15px;
+    width: 175px;
+    height: 75px;
+    color:#fff;
+    font-size: 35px;
 
 }
 #msg{
@@ -111,9 +120,82 @@ textarea:focus, input:focus {
     justify-content: space-between;
     align-items: flex-end;
     GAP: 10px;
+    margin: 40px auto;
+
+}
+
+#audio_quality{
+    
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    GAP: 10px;
+    margin: 30px auto;
+    padding: 10px;
+    
+
+}
+
+#video_quality1{
+    
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    GAP: 10px;
     margin: 20px auto;
 
 }
+
+#video_quality2{
+    
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    GAP: 10px;
+    margin: 20px auto;
+
+}
+#video_quality3{
+    
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    GAP: 10px;
+    margin: 20px auto;
+
+}
+#video_check{
+    
+    display: flex;
+    width: 800px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    GAP: 10px;
+    margin: 20px auto;
+
+}
+
+#selection_qualite{
+    
+    display: flex;
+    width: 800px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    GAP: 10px;
+    margin: 20px auto;
+
+}
+
 
 #logo-container{
         border: 1px solid white;
@@ -148,3 +230,22 @@ textarea:focus, input:focus {
 }
 
 
+#container{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+#both{
+    display: flex;
+    gap:20px;
+}
+
+#container_button{
+    display: flex;
+    flex-direction: row;
+    gap :50px;
+    align-content: center;
+    justify-content: center;
+}

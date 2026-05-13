@@ -3,6 +3,7 @@ import os
 import subprocess
 import shutil
 import contextlib
+import time
 
 from pytubefix import YouTube
 #from pytubefix.cli import on_progress
@@ -36,6 +37,7 @@ def audio_et_video_download(yt, title):
 
 
     # Video
+    
     ys = yt.streams.get_by_itag(video_itag_finder(yt))
     with contextlib.redirect_stderr(None):
         ys.download(filename=filename_video_working)
@@ -43,21 +45,25 @@ def audio_et_video_download(yt, title):
 
     # Audio
     ys = yt.streams.get_by_itag(audio_itag_finder(yt))
+    
     with contextlib.redirect_stderr(None):
         ys.download(filename=filename_audio_working)
-
+    
    
     print("Téléchargement de la vidéo et de  l'audio terminé !")
 
 ####--####
+    print(os.listdir(path_folder_src))
 
     # Merge des deux fichiers
     subprocess.run(ffmpeg, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    print("\n\n\n")
-    print(source_path)
-    # Deplacement du fichier video final dans le dossier de destination
-    shutil.move(source_path, destination_path)
 
+    print(source_path,destination_path,filename_audio_video_merged,titre ,"STOOOOP")
+    # Deplacement du fichier video final dans le dossier de destination
+    
+
+    #shutil.move(source_path, destination_path)
+    os.rename(source_path,destination_path)
     # suppression des fichiers temporaires
     os.remove(filename_audio_working)
     os.remove(filename_video_working)

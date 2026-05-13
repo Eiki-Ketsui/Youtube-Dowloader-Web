@@ -3,12 +3,13 @@ from markupsafe import escape
 
 from pytubefix import YouTube
 
-from static.python_script.hello import verification_url,recuperation_titre
+from static.python_script.recuperation_titre import verification_url,recuperation_titre
 from static.python_script.audio_and_video import audio_et_video_download
 from static.python_script.audio_only import audio_only_download
 
 app = Flask(__name__)
 app.secret_key = "Sachin"
+
 @app.route("/")
 def index():
     return redirect(url_for("youtube_downloader"))
@@ -37,7 +38,7 @@ def youtube_downloader():
         yt = YouTube(url)
 
         title = recuperation_titre(yt)
-
+        redirect(url_for("chargement"))
         if download_type == "Video":
             audio_et_video_download(yt, title)
             flash(f"Tu as bien telecharger {title} en mp4")
@@ -54,7 +55,10 @@ def youtube_downloader():
     return render_template('index.html')
 
 
-
+@app.route("/chargement")
+def chargement():
+    return render_template('chargement.html')
+   
 
 
 

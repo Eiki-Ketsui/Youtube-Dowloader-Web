@@ -4,6 +4,9 @@ from pytubefix import YouTube
 def audio_itag_finder(yt):
     dicitagbis = {}
 # liste de tous les itag audio disponibles pour la vidéo.
+    for stream in yt.streams:
+        print(stream)
+
     for stream in yt.streams.filter(mime_type="audio/webm").order_by('abr').desc():
         stream_quality_sound_int = int(str(stream.abr).replace("kbps", ""))
 
