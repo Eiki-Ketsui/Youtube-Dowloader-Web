@@ -57,16 +57,7 @@ button{
 
 }
 
-.mini{
-    display: block;
-    
-    padding: 15px;
-    width: 175px;
-    height: 75px;
-    color:#fff;
-    font-size: 35px;
 
-}
 #msg{
   display: flex;
   justify-content: center;
@@ -248,4 +239,15 @@ textarea:focus, input:focus {
     gap :50px;
     align-content: center;
     justify-content: center;
+}
+
+.mini{
+    display: block;
+    
+    padding: 15px;
+    width: 175px;
+    height: 75px;
+    color:#fff;
+    font-size: 35px;
+    
 }

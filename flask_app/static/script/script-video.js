@@ -15,23 +15,6 @@ let button_audio = document.getElementById(strMusique)
 let qualiteaudio =  ["160kbps","50kbps"];
 let qualitevideo = ["2160p","1440p","1080p","720p","480p","360p","240p","144p"]
 
-/* 
-
-async function loadData() 
-{
-  let response = await fetch("data.json");
-  let data = await response.json();
-}
-
-
-button_download.onclick = function() 
-{ 
-    lien = document.getElementById("url").value;
-
-    loadData();
-    return(console.log("done loading data"))
-}
-*/
 
 button_video.onclick = function() 
 {
@@ -52,12 +35,15 @@ button_audio.onclick = function()
 
 }
 
+
+
 function choix_type_telechargement(typededownload){
         
     
     let text;
     let i = 0;
-    
+    print(qualitevideo[i])
+
     if (typededownload == "Musique")
     {
         docselec(typededownload)
@@ -74,11 +60,21 @@ function choix_type_telechargement(typededownload){
       
     }
   
-        console.log(qualitevideo.length)
+        if (typededownload == "2160p")
+    {   
+        docselec(typededownload)
+        for(i > qualitevideo - 1){
+        document.getElementById(qualitevideo[i]).removeAttribute('name')
+        document.getElementById(qualitevideo[i]).setAttribute("class","desactive")
+        print(qualitevideo[i])
+        }
 
+      
+    }
+/** 
     while ( i <= qualitevideo.length-1) {
     
-
+print("quality video :", qualitevideo[i] , type(qualitevideo[i]), "typededownload :" ,typededownload)
     if (qualitevideo[i] == typededownload){
 
     
@@ -95,7 +91,10 @@ function choix_type_telechargement(typededownload){
     console.log(text,qualitevideo[i] )
     i++
     }
+    */
     console.log("le texte a break")
+    document.getElementById("result").setAttribute("name","type")
+    document.getElementById("result").setAttribute("value",typededownload)
 }
 
 function set_inactive(typededownload){
@@ -103,13 +102,16 @@ function set_inactive(typededownload){
     let i = 0;
     while ( i <= qualitevideo.length -1) {
         if (qualitevideo[i] == typededownload){
+            console.log(qualitevideo[i],typededownload)
             continue
         }
         else{
             document.getElementById(qualitevideo[i]).setAttribute("class","desactive")
-
+           
         }
+     i++;
     }
+
 
 }
 
@@ -117,10 +119,10 @@ function docselec(typededownload){
         document.getElementById(typededownload).removeAttribute('desactive')
         document.getElementById(typededownload).setAttribute("class","active")
         document.getElementById(typededownload).setAttribute("name",typededownload)
-        document.getElementById("result").setAttribute("name","type")
-        document.getElementById("result").setAttribute("value",typededownload)
+
 
 }
+
 /*  minisoo*/
 document.getElementById("2160p").onclick = function() 
 {
@@ -149,6 +151,38 @@ document.getElementById("1080p").onclick = function()
 document.getElementById("720p").onclick = function() 
 {
     typededownload = "720p"
+
+    choix_type_telechargement(typededownload)
+
+}
+
+document.getElementById("480p").onclick = function() 
+{
+    typededownload = "480p"
+
+    choix_type_telechargement(typededownload)
+
+}
+
+document.getElementById("240p").onclick = function() 
+{
+    typededownload = "240p"
+
+    choix_type_telechargement(typededownload)
+
+}
+
+document.getElementById("160kbps").onclick = function() 
+{
+    typededownload = "160kbps"
+
+    choix_type_telechargement(typededownload)
+
+}
+
+document.getElementById("50kbps").onclick = function() 
+{
+    typededownload = "50kbps"
 
     choix_type_telechargement(typededownload)
 
