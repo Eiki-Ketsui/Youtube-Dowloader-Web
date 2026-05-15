@@ -33,6 +33,7 @@ def audio_et_video_download(yt, title):
     ffmpeg = f"ffmpeg -i {filename_video_working} -i {filename_audio_working} -c:v copy -c:a copy {filename_audio_video_merged} -y"
 
     # deplacement dans le dossier du travail
+
     os.chdir(path_folder_src)
 
 
@@ -41,7 +42,8 @@ def audio_et_video_download(yt, title):
     ys = yt.streams.get_by_itag(video_itag_finder(yt))
     with contextlib.redirect_stderr(None):
         ys.download(filename=filename_video_working)
-    
+    print("Testo")
+
 
     # Audio
     ys = yt.streams.get_by_itag(audio_itag_finder(yt))
@@ -49,7 +51,7 @@ def audio_et_video_download(yt, title):
     with contextlib.redirect_stderr(None):
         ys.download(filename=filename_audio_working)
     
-   
+
     print("Téléchargement de la vidéo et de  l'audio terminé !")
 
 ####--####

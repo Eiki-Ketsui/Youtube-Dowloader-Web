@@ -21,10 +21,15 @@ def youtube_downloader():
 
     if request.method == 'POST':
         return "The login form has been submitted"
+
     elif request.method == 'GET':
         download_type = "Video"
         url = request.args.get('url', 'value')
-        download_type = request.args.get('type', 'value')
+        
+        video_quality = request.args.get('type', 'value')
+        
+        audio_quality = request.args.get('type2', 'value')
+        print(audio_quality)
         if url == "value" or url == "":
             flash("Veuillez entrer une URL valide !")
 
@@ -38,8 +43,9 @@ def youtube_downloader():
         yt = YouTube(url)
 
         title = recuperation_titre(yt)
-        redirect(url_for("chargement"))
+        #redirect(url_for("chargement"))
         if download_type == "Video":
+
             audio_et_video_download(yt, title)
             flash(f"Tu as bien telecharger {title} en mp4")
             return redirect(url_for("youtube_downloader"))
