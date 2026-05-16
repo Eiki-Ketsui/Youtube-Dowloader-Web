@@ -18,6 +18,128 @@ let qualitevideo = ["2160p","1440p","1080p","720p","480p","360p","240p","144p"];
 
 let qualitechoisisvideo = "1080p";
 
+
+function Focus_traitement_audio(id)
+{
+    
+
+    desactiveother(id);
+};
+
+
+
+
+function Focus_traitement_video(id)
+{
+    desactiveother(id);
+};
+
+
+
+function desactiveother(idignored)
+{
+    if(idignored.endsWith("p")){
+        for(let i = 0; i <= qualitevideo.length - 1;i++)
+            {
+                if(qualitevideo[i] ==idignored)
+                    {
+                        document.getElementById(qualitevideo[i]).setAttribute("class","mini active");
+                        document.getElementById("buttonqualityvideo").setAttribute("value",idignored);
+
+                    }
+                else
+                    {                                
+                        document.getElementById(qualitevideo[i]).setAttribute("class","mini desactive");
+                       
+
+
+                    };
+            };
+    }
+    else{
+        for(let i = 0; i <= qualiteaudio.length - 1;i++)
+        {
+            if(qualiteaudio[i] ==idignored)
+                {
+                    document.getElementById(qualiteaudio[i]).setAttribute("class","mini active");
+                    document.getElementById("buttonqualityaudio").setAttribute("value",idignored);
+                    
+                }
+            else
+                {
+                    document.getElementById(qualiteaudio[i]).setAttribute("class","mini desactive");
+                };
+        };
+
+    };
+};
+
+
+
+
+button_video.onclick = function() 
+{
+    typededownload = strVideo;
+
+    choix_type_telechargement(typededownload);
+    document.getElementById("download_type").setAttribute("value","Video");
+
+
+};
+
+
+
+button_audio.onclick = function() 
+{
+    typededownload = strMusique;
+
+
+    choix_type_telechargement(typededownload);
+    document.getElementById("download_type").setAttribute("value","Musique");
+
+};
+
+
+
+   
+
+function choix_type_telechargement(typededownload)
+{
+        
+    docselec(typededownload);
+    let text;
+    let i = 0;
+
+        if (typededownload == "Musique")
+        {
+            docselec(typededownload)
+            document.getElementById(strVideo).removeAttribute('name');
+            document.getElementById(strVideo).setAttribute("class","desactive");
+
+        };
+
+        if (typededownload == "Video")
+        {   
+            docselec(typededownload)
+            document.getElementById(strMusique).removeAttribute('name');
+            document.getElementById(strMusique).setAttribute("class","desactive");
+        
+        };
+        document.getElementById("download_type").setAttribute("value","Video");
+
+    
+}
+
+function docselec(typededownload){
+        document.getElementById(typededownload).removeAttribute('desactive');
+        document.getElementById(typededownload).setAttribute("class","active");
+        
+
+
+} 
+
+/* ENDING BUTTON */
+
 document.getElementById("160kbps").onclick = function()
 {
     Focus_traitement_audio("160kbps");
@@ -70,155 +192,6 @@ document.getElementById("144p").onclick = function()
 {
     Focus_traitement_video("144p");
 };
-
-
-function Focus_traitement_audio(id)
-{
-    
-
-    desactiveother(id);
-};
-
-
-
-
-function Focus_traitement_video(id)
-{
-    desactiveother(id);
-};
-
-
-
-
-button_video.onclick = function() 
-{
-    typededownload = strVideo;
-
-    choix_type_telechargement(typededownload);
-    videoarr();
-
-
-};
-
-
-
-button_audio.onclick = function() 
-{
-    typededownload = strMusique;
-
-
-    choix_type_telechargement(typededownload);
-    audioarr();
-};
-
-
-function audioarr()
-{
-    let i = 0;
-    console.log(i,qualiteaudio,qualiteaudio.length,qualiteaudio.length-1);
-
-    for(let i = 0; i <= qualiteaudio.length - 1;i++)
-    {
-        console.log(qualiteaudio[i]);
-        console.log("ivalue" ,i);
-    };
-};
-
-function videoarr()
-{
-    let i = 0;
-    console.log(i,qualitevideo,qualitevideo.length,qualitevideo.length-1);
-
-    for(let i = 0; i <= qualitevideo.length - 1;i++)
-    {
-    console.log(qualitevideo[i]);
-    console.log("ivalue" ,i);
-    };
-};
-   
-document.getElementById().onclick = function() 
-{
-    typededownload = strMusique;
-
-
-    choix_type_telechargement(typededownload);
-
-}
-
-function desactiveother(idignored)
-{
-    if(idignored.endsWith("p")){
-        for(let i = 0; i <= qualitevideo.length - 1;i++)
-            {
-                if(qualitevideo[i] ==idignored)
-                    {
-                        document.getElementById(qualitevideo[i]).setAttribute("class","mini active");
-
-                    }
-                else
-                    {                                
-                        document.getElementById(qualitevideo[i]).setAttribute("class","mini desactive");
-
-                    };
-            };
-    }
-    else{
-        for(let i = 0; i <= qualiteaudio.length - 1;i++)
-        {
-            if(qualiteaudio[i] ==idignored)
-                {
-                    document.getElementById(qualiteaudio[i]).setAttribute("class","mini active");
-
-                }
-            else
-                {
-                    document.getElementById(qualiteaudio[i]).setAttribute("class","mini desactive");
-                };
-        };
-
-    };
-};
-
-function choix_type_telechargement(typededownload)
-{
-        
-    docselec(typededownload);
-    let text;
-    let i = 0;
-    console.log(qualitevideo[i]);
-
-        if (typededownload == "Musique")
-        {
-            docselec(typededownload)
-            document.getElementById(strVideo).removeAttribute('name');
-            document.getElementById(strVideo).setAttribute("class","desactive");
-
-        };
-
-        if (typededownload == "Video")
-        {   
-            docselec(typededownload)
-            document.getElementById(strMusique).removeAttribute('name');
-            document.getElementById(strMusique).setAttribute("class","desactive");
-        
-        };
-
-        if (typededownload == "2160p"){
-           document.getElementById("result").setAttribute('value',typededownload);
-           console.log("click")
-
-        };
-    
-}
-
-function docselec(typededownload){
-        document.getElementById(typededownload).removeAttribute('desactive');
-        document.getElementById(typededownload).setAttribute("class","active");
-        document.getElementById(typededownload).setAttribute("name",typededownload);
-
-
-} 
-
 
 
 

@@ -9,9 +9,10 @@ from .itag_finder import audio_itag_finder
 
 
 
-def audio_only_download(yt, title):
+def audio_only_download(yt, title,audio_quality):
 
     ## variables
+    audio = int(nettoyage_audio_quality(audio_quality))
     categorie = "Musique"
 
     dossier_destination = "/NOMORE_YOUTUBE/Media/Musique/"
@@ -21,7 +22,7 @@ def audio_only_download(yt, title):
 
 
     #### Selection du itag parmis les streams disponibles pour la meilleurs qualité de l'audio ####
-    ys = yt.streams.get_by_itag(audio_itag_finder(yt))
+    ys = yt.streams.get_by_itag(audio_itag_finder(yt,audio))
 
     ####Changement du répertoire pour aller sur le dossier music ####
 
@@ -39,3 +40,6 @@ def audio_only_download(yt, title):
     return print("Fin de téléchargement de la musique !")
 
 
+def nettoyage_audio_quality(audio_quality):
+    final = audio_quality.split('kbps')[0]
+    return final

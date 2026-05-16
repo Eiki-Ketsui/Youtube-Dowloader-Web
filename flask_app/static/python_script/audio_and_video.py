@@ -9,11 +9,14 @@ from pytubefix import YouTube
 #from pytubefix.cli import on_progress
 
 from .itag_finder import audio_itag_finder, video_itag_finder
+from .audio_only import nettoyage_audio_quality
 
 
 
-def audio_et_video_download(yt, title):
+def audio_et_video_download(yt, title,video_quality,audio_quality):
 
+    audio =  int(nettoyage_audio_quality(audio_quality))
+    video =  int(nettoyage_video_quality(video_quality))
     #Mise en place des variables
     categorie = "Video"
 
@@ -39,14 +42,14 @@ def audio_et_video_download(yt, title):
 
     # Video
     
-    ys = yt.streams.get_by_itag(video_itag_finder(yt))
+    ys = yt.streams.get_by_itag(video_itag_finder(yt,video))
     with contextlib.redirect_stderr(None):
         ys.download(filename=filename_video_working)
     print("Testo")
 
 
     # Audio
-    ys = yt.streams.get_by_itag(audio_itag_finder(yt))
+    ys = yt.streams.get_by_itag(audio_itag_finder(yt,audio))
     
     with contextlib.redirect_stderr(None):
         ys.download(filename=filename_audio_working)
@@ -78,3 +81,6 @@ def audio_et_video_download(yt, title):
     return print("Fin du traitement de la vidéo !")
 
 
+def nettoyage_video_quality(video_quality):
+    final = video_quality.split('p')[0]
+    return final
